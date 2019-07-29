@@ -23,20 +23,27 @@ public class ClassesFeignController {
 	@Autowired
 	private StudentFeignService studentFeignService;
 	
-	@GetMapping("/listStudent")
+	@GetMapping("/liststudentfeign")
 	public List<StudentBean> listStudent() {
 		
 		return studentFeignService.listStudent();
 		
 	}
 	
+	@GetMapping("/find/{id}")
+	public  List<StudentBean> listStudentxId(@PathVariable int id){
+		
+		
+		return studentFeignService.listStudentxId(id);
+	}
+
 	@GetMapping("/{id}")
 	public ClassesStudent listStudentxClases(@PathVariable int id){
 		
 		
 		return studentFeignService.listStudentxClases(id);
 	}
-	
+
 	
 /*	@PostMapping("/saveClasses")
 	public Classes saveClasses(@RequestBody Classes classes) {
