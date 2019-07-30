@@ -1,6 +1,7 @@
 package com.everis.servicioA.entity;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -10,6 +11,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.Data;
 
@@ -35,6 +39,6 @@ public class Teacher implements Serializable {/**
 	@NotNull(message="Ingresar datos")
 	private String otherTeacherDetails;
 	@OneToMany(cascade=CascadeType.ALL, mappedBy="teacher")
-	private List<Classes> classes;
+	private List<Classes> classes = new ArrayList<Classes>();
 	
 }

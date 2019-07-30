@@ -1,6 +1,7 @@
 package com.everis.servicioA.entity;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -12,6 +13,8 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
+
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.Data;
@@ -35,14 +38,16 @@ public class Classes implements Serializable {
 	@NotNull(message="Ingresar datos")
 	private String dateTo;
     @ManyToOne(cascade=CascadeType.ALL,fetch = FetchType.LAZY)
+    @JsonIgnoreProperties("classes")
     private Teacher teacher;
     @ManyToOne(cascade=CascadeType.ALL,fetch = FetchType.LAZY)
+    @JsonIgnoreProperties("classe")
     private Subject subject;
 
 	
 	@OneToMany(mappedBy="classesReference")
 	@JsonIgnoreProperties("classesReference")
-	public List<ClassesStudent> classesStudent;
+	public List<ClassesStudent> classesStudent = new ArrayList<ClassesStudent>();
 	
 	
 	

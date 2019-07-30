@@ -1,5 +1,7 @@
 package com.everis.servicioA.serviceImpl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -31,6 +33,18 @@ public class ClassesServiceImpl implements ClassesService{
 		
 		classesStudentRepository.saveAll(clas.getClassesStudent());
 		return room;
+	}
+
+	@Override
+	public List<Classes> listClasses() {
+
+		return classesRepository.findAll();
+	}
+
+	@Override
+	public Classes findClasses(int id) {
+
+		return classesRepository.findById(id).get();
 	}
 
 	
