@@ -32,4 +32,10 @@ public class TeacherServiceImpl implements TeacherService {
 		return teacherRepository.findAll();
 	}
 
+	@Override
+	public Teacher findByIdTeacher(int id) {
+
+		return teacherRepository.findById(id).get();
+	}
+
 }

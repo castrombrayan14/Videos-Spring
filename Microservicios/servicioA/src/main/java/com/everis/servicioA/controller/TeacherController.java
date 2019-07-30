@@ -25,5 +25,11 @@ public class TeacherController {
 		
 		return teacherService.listTeacher();
 	}
+	
+	@GetMapping("/listTeacher/{id}")
+	public Teacher findIdTeacher(int id) {
+		
+		return teacherService.findByIdTeacher(id);
+	}
 
 }

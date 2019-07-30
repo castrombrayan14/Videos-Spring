@@ -9,4 +9,6 @@ public interface TeacherService {
     Teacher saveTeacher(Teacher teacher);
 	
 	public List<Teacher> listTeacher();
+	
+	Teacher findByIdTeacher(int id);
 }

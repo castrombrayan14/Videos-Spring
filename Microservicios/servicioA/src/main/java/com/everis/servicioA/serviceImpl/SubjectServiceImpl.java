@@ -33,4 +33,10 @@ public class SubjectServiceImpl implements SubjectService{
 		return subjectRepository.findAll();
 	}
 
+	@Override
+	public Subject findByIdSubject(int id) {
+		// TODO Auto-generated method stub
+		return subjectRepository.findById(id).get();
+	}
+
 }

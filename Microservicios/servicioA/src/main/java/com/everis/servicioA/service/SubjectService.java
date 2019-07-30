@@ -8,5 +8,7 @@ public interface SubjectService {
 
 	Subject saveSubject(Subject subject);
 	
-	public List<Subject> listSubject();
+     List<Subject> listSubject();
+	
+     Subject findByIdSubject(int id);
 }
