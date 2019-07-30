@@ -12,7 +12,9 @@ import com.everis.servicioA.repository.ClassesStudentRepository;
 import com.everis.servicioA.service.ClassesService;
 
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 @Service
 @AllArgsConstructor
 public class ClassesServiceImpl implements ClassesService{
@@ -32,19 +34,31 @@ public class ClassesServiceImpl implements ClassesService{
 		clas.getClassesStudent().forEach(StudentClasses -> StudentClasses.setClassesReference(room));
 		
 		classesStudentRepository.saveAll(clas.getClassesStudent());
+		
+		log.info("Se crea la clase");
 		return room;
 	}
 
 	@Override
 	public List<Classes> listClasses() {
 
+		log.debug("Se obtienen todas las clases ");
 		return classesRepository.findAll();
 	}
 
 	@Override
 	public Classes findClasses(int id) {
 
+		log.debug("Se obtiene la clase con id:" + id);
 		return classesRepository.findById(id).get();
+	}
+
+	@Override
+	public void deleteClasses(int id) {
+
+		log.debug("Se elimina la clase con id:" + id);
+		classesRepository.deleteById(id);
+		
 	}
 
 	

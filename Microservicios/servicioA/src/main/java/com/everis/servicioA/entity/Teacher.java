@@ -38,7 +38,7 @@ public class Teacher implements Serializable {/**
 	private String lastName;
 	@NotNull(message="Ingresar datos")
 	private String otherTeacherDetails;
-	@OneToMany(cascade=CascadeType.ALL, mappedBy="teacher")
+	@OneToMany(cascade=CascadeType.ALL, mappedBy="teacher",orphanRemoval = true)
 	private List<Classes> classes = new ArrayList<Classes>();
 	
 }

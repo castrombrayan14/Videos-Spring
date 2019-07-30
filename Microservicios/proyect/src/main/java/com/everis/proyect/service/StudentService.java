@@ -11,4 +11,6 @@ public interface StudentService {
 	public List<Student> listStudent();
 
 	public Student findByStudentIdSQL(int id);
+	
+	void deleteStudent(int id);
 }

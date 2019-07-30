@@ -29,7 +29,7 @@ public class Subject implements Serializable{
 	@NotNull(message="Ingresar datos")
 	private String subjectName;
 	
-	@OneToMany(cascade=CascadeType.ALL, mappedBy="subject")
+	@OneToMany(cascade=CascadeType.ALL, mappedBy="subject",orphanRemoval = true)
 	private List<Classes> classe = new ArrayList<Classes>();
 
 }

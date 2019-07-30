@@ -11,4 +11,6 @@ public interface SubjectService {
      List<Subject> listSubject();
 	
      Subject findByIdSubject(int id);
+     
+     
 }

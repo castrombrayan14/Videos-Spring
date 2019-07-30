@@ -11,4 +11,6 @@ public interface ClassesService {
 	 List<Classes> listClasses();
 	 
 	 Classes findClasses(int id);
+	 
+	 void deleteClasses(int id);
 }
