@@ -11,11 +11,11 @@ public class ClassesStudentServiceImpl implements ClassesStudentService {
 	@Autowired
 	ClassesStudentRepository classesStudentRepository;
 
+	
 	@Override
 	public ClassesStudent saveClassesStudent(ClassesStudent classesStudent) {
 		// TODO Auto-generated method stub
 		return classesStudentRepository.save(classesStudent);
 	}
 
-	
 }

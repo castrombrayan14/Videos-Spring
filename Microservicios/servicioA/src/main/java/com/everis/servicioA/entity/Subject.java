@@ -15,26 +15,15 @@ import lombok.Data;
 
 @Data
 @Entity
-public class Teacher implements Serializable {/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-
+public class Subject implements Serializable{
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@NotNull(message="Ingresar datos")
-	private int teacherId;
+	private int subjectId;
 	@NotNull(message="Ingresar datos")
-	private String gender;
-	@NotNull(message="Ingresar su nombre")
-	private String firstName;
-	@NotNull(message="Ingresar datos")
-	private String midleName;
-	@NotNull(message="Ingresar datos")
-	private String lastName;
-	@NotNull(message="Ingresar datos")
-	private String otherTeacherDetails;
-	@OneToMany(cascade=CascadeType.ALL, mappedBy="teacher")
+	private String subjectName;
+	@OneToMany(cascade=CascadeType.ALL, mappedBy="subject")
 	private List<Classes> classes;
-	
+
 }

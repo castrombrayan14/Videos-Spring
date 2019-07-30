@@ -19,9 +19,9 @@ public class StudentServiceImpl implements StudentService {
 
 	@Override
 	@Transactional
-	public Student saveStudents(Student student) {
+	public void saveStudents(Student student) {
 
-		return studentRepository.save(student);
+		studentRepository.save(student);
 	}
 
 	@Override
@@ -35,15 +35,6 @@ public class StudentServiceImpl implements StudentService {
 	public Student findByStudentIdSQL(int id) {
 		// TODO Auto-generated method stub
 		return studentRepository.findByStudentIdSQL(id);
-	}
-
-
-
-	@Override
-	public void deleteStudent(int id) {
-
-		studentRepository.deleteById(id);
-		
 	}
 
 }

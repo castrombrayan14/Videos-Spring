@@ -4,11 +4,12 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -33,11 +34,13 @@ public class Classes implements Serializable {
 	private String dateFrom;
 	@NotNull(message="Ingresar datos")
 	private String dateTo;
-	//private Student student;
-	@Column(name="teacher_id")
-	private Long teacherId;
+    @ManyToOne(cascade=CascadeType.ALL,fetch = FetchType.LAZY)
+    private Teacher teacher;
+    @ManyToOne(cascade=CascadeType.ALL,fetch = FetchType.LAZY)
+    private Subject subject;
+
 	
-	@OneToMany(mappedBy="classesReference",cascade = CascadeType.ALL)
+	@OneToMany(mappedBy="classesReference")
 	@JsonIgnoreProperties("classesReference")
 	public List<ClassesStudent> classesStudent;
 	

@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.everis.servicioA.entity.StudentBean;
 import com.everis.servicioA.feignService.StudentFeignService;
 
-
 @RestController
 @RequestMapping
 public class ClassesFeignController {
@@ -19,19 +18,17 @@ public class ClassesFeignController {
 	@Autowired
 	private StudentFeignService studentFeignService;
 	
-	@GetMapping("/liststudentfeign")
+	@GetMapping("/listStudent")
 	public List<StudentBean> listStudent() {
 		
 		return studentFeignService.listStudent();
-		
 	}
 	
+
 	@GetMapping("/find/{id}")
-	public  StudentBean listStudentxId(@PathVariable int id){
-		
+	public StudentBean listStudentxId(@PathVariable int id) {
 		
 		return studentFeignService.listStudentxId(id);
 	}
-
 
 }
